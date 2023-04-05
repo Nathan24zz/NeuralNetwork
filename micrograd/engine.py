@@ -89,7 +89,7 @@ class Value:
         out = Value(t, (self, ), 'tanh')
 
         def _backward():
-            self.grad += 1 - out.data**2
+            self.grad += (1 - t**2) * out.grad
         out._backward = _backward
         return out
 
